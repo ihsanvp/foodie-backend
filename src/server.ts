@@ -1,14 +1,17 @@
-import App from 'app/Application';
-import PostsController from 'controllers/PostsController';
+import Koa from 'koa';
+import parser from 'koa-bodyparser';
+import json from 'koa-json';
+import cors from '@koa/cors';
+import Router from 'router';
 
+const App = new Koa();
 const PORT = process.env.PORT || 8000;
 
-const app = new App().express;
+// Middlewares
+App.use(json());
+App.use(cors());
 
-app.get('/', (req, res) => {
-  return res.json({
-    message: 'ok',
-  });
-});
+App.use(Router.routes());
+App.use(Router.allowedMethods());
 
-app.listen(PORT, () => console.log(`👂Listening on Port ${PORT}👂`));
+App.listen(PORT, () => console.log(`🚀 Server listening http://127.0.0.1:${PORT}/ 🚀`));

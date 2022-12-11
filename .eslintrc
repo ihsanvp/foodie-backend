@@ -8,17 +8,15 @@
         "node": true,
         "es2021": true
     },
-    "extends": [
-        "standard-with-typescript",
-        "prettier/@typescript-eslint", 
-    ],
+    "extends": "eslint:recommend",
     "plugins": [
         "@typescript-eslint/recommended",
         "prettier/recommended"
     ],
     "overrides": [
     ],
-    
     "rules": {
+        "no-unused-private-class-members": "error",
+        "no-unused-expressions":"error"
     }
 }
