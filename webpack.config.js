@@ -1,6 +1,7 @@
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const NodemonPlugin = require('nodemon-webpack-plugin');
 
 /** @type {import("webpack").Configuration} */
 const config = {
@@ -31,6 +32,16 @@ const config = {
   externalsPresets: {
     node: true,
   },
+  plugins: [
+    new NodemonPlugin({
+      script: './build/server.js',
+      watch: [path.resolve('./build')],
+      verbose: true,
+      env: {
+        NODE_ENV: 'development',
+      },
+    }),
+  ],
 };
 
 module.exports = config;

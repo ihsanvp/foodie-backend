@@ -1,4 +1,5 @@
 import App from 'app/Application';
+import PostsController from 'controllers/PostsController';
 
 const PORT = process.env.PORT || 8000;
 
