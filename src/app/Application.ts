@@ -1,7 +1,7 @@
 import express from 'express';
 import type { Express } from 'express';
 
-class App {
+export default class App {
   public express: Express;
 
   constructor() {
@@ -14,5 +14,3 @@ class App {
 
   private loadMiddlewares() {}
 }
-
-export default App;
